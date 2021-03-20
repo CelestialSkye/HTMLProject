@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Project</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="mainstyle.css" />
+<link rel="stylesheet" type="text/css" href="StyleSheet2.css" />
+<script src="scripts.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+b{
+  font-size: 25px;
+  color:black;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+
+}
+
+
+  select {
+  margin-bottom: 1em;
+  padding: .25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor; 
+  font-weight: bold;
+  letter-spacing: .20em;
+  border-radius: 0;
+  
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 3px 3px 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 15px -15px rgba(#000, .5);
+  
+  }
+  .loading {
+    background: #eee;
+    
+  }
+
+@for $i from 1 through 5 {
+  .images[data-selected="#{$i}"] {
+    img[data-image="#{$i}"] {
+      display: block;
+    }
+  }
+}
+
+@keyframes loading {
+  to {
+    letter-spacing: .25em;
+  }
+}
+
+button {
+  background-color: #4b504b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<script>
+  class engine{
+constuctor(Place,Engine,Years) {
+    this.Place = Place;
+    this.Engine = Engine;
+    this.Years = Years;
+  } 
+  get getPlace(){
+    return this.Place;
+  }
+
+  get getEngine(){
+    return this.Engine;
+  }
+
+  get getYears(){
+    return this.Years;
+  }
+  
+  set setPlace(Place){
+    this.Place=Place;
+  }
+
+  set setEngine(Engine){
+    this.Engine=Engine;
+  }
+
+  set setYears(Years){
+    this.Years=Years;
+  }
+
+  toString(){
+    return "You're from " + this.Place + " The engine you chose is " + this.Engine + " and it's prodcution date is " + this.Years
+  
+  }
+  }
+  
+
+function buying(){
+    var Place = document.getElementById("Place").value;
+    var Engine = document.getElementById("Engine").value;
+    var Years = document.getElementById("Years").value;
+    var cost = 1*Place*Engine*Years;
+    engine1 = new engine();
+    engine1.setPlace=Place;
+    engine1.setEngine=Engine;
+    engine1.setYears=Years;
+    alert(`Buying this engine will cost you ${cost}  k` );
+    alert(engine1.toString());
+    
+  }
+  
+</script>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+  <div id="header"><h1>
+       <div class="img">
+         <h2>
+           EVERY SUPERCAR OUT THERE
+         </h2>
+        </div>
+  </h1></div>
+
+
+
+  <div id="navigation">
+    <ul id="menu">
+      <center>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="P1.html" target="_self"  >Ferrari</a></li>
+      <li><a href="P2.html" target="_self">Bugatti</a></li>
+      <li><a href="P3.html" target="_self">Lamborghini</a></li>
+      <li><a href="P4.html" target="_self" >Porsche</a></li>
+      <li><a href="P5.html" target="_self"  >Companies</a></li>
+      <li><a href="P6.html" target="_self">Gallary</a></li>
+      <li><a href="P7.html" target="_self">Technology</a></li>
+      <li><a href="P8.html" target="_self">Contact</a></li>
+      <li><a href="buycar.html" target="_self">Car Shop</a></li>
+      <li><a href="buyengine.html" target="_self" style="border-style:solid">Engine Shop</a></li>
+      <li><a href="P11.html" target="_self">Quiz</a></li>
+
+      </center>
+
+      
+
+      
+    </ul>
+   </div>
+  <div id="content">
+    <h1>Buying an Engine</h1>  <br><br> <br><br>
+    <form name="form1">
+      <label><b>Country</b></label> 
+      <select id="Place">
+        <option value="1.5" id="United States">United States</option>
+        <option value="1.8" id="France">France</option>
+        <option value="2" id="China">China</option>
+        <option value="1.9" id="Spain">	Spain</option>
+        <option value="1.3" id="Italy">	Italy</option>
+        <option value="2" id="United Kingdom">United Kingdom</option>
+        <option value="1.3" id="Germany">	Germany</option>
+        <option value="1.8" id="Russian Federation">Russian Federation</option>
+        <option value="1.9" id="Malaysia">Malaysia</option>
+        <option value="2.0" id="Israel">Israel</option>
+        <option value="2.1" id="Mexico">Mexico</option>
+        <option value="1.5" id="Australia">Australia</option>
+        <option value="1.7" id="Sweden">Sweden</option>
+        <option value="1.6" id="Denmark">Denmark</option>
+        <option value="1.4" id="India">India</option>
+        <option value="1.5" id="Poland">Poland</option>
+      </select> <br><br> 
+      <label><b>Engine</b></label>
+      <select id="Engine">
+        <option value="130" id="bugatti">V8 ENGINE</option>
+        <option value="150" id="ferrari">W16 ENGINE</option>
+        <option value="180" id="lambo">V10 ENGINE</option>
+        <option value="170" id="prosche">V12 ENGINE</option>
+        <option value="190" id="prosche">BMW M70 ENGINE</option>
+      </select> <br><br> 
+
+      <label><b>Year</b></label>
+      <select id="Years">
+        <option value="1.2">2013</option>
+        <option value="1.4">2014</option>
+        <option value="1.5">2015</option>
+        <option value="1.6">2016</option>
+        <option value="1.8">2017</option>
+        <option value="2">2018</option>
+      </select>
+
+      <br><br><br>
+      <button onClick="buying()">Buy</button>
+
+    </br> </br> </br>
+
+    </form>
+</div>
+
+
+
+</body>
+</html>

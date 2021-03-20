@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Project</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="mainstyle.css" />
+<link rel="stylesheet" type="text/css" href="StyleSheet2.css" />
+<script src="scripts.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+b{
+  font-size: 25px;
+  color:black;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+
+}
+
+
+  select {
+  margin-bottom: 1em;
+  padding: .25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor; 
+  font-weight: bold;
+  letter-spacing: .20em;
+  border-radius: 0;
+  
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 3px 3px 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 15px -15px rgba(#000, .5);
+  
+  }
+  .loading {
+    background: #eee;
+    
+  }
+
+@for $i from 1 through 5 {
+  .images[data-selected="#{$i}"] {
+    img[data-image="#{$i}"] {
+      display: block;
+    }
+  }
+}
+
+@keyframes loading {
+  to {
+    letter-spacing: .25em;
+  }
+}
+
+button {
+  background-color: #4b504b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<script>
+  class car{
+constuctor(Color,Place,Car,Years) {
+    this.Colore = Color;
+    this.Place = Place;
+    this.Car = Car;
+    this.Years = Years;
+  } 
+  get getColor(){
+    return this.Color;
+  }
+
+
+  get getPlace(){
+    return this.Place;
+  }
+
+  get getCar(){
+    return this.Car;
+  }
+
+  get getYears(){
+    return this.Years;
+  }
+
+  set setColor(Color){
+    this.Color=Color;
+  }
+  
+  set setPlace(Place){
+    this.Place=Place;
+  }
+
+  set setCar(Car){
+    this.Car=Car;
+  }
+
+  set setYears(Years){
+    this.Years=Years;
+  }
+
+  toString(){
+    return "You car's Color is " + this.Color + " You're from " + this.Place + " The engine you chose is " + this.Car + " and it's prodcution date is " + this.Years
+  
+  }
+  }
+  
+
+function buying(){
+    var Color = document.getElementById("Color").value;
+    var Place = document.getElementById("Place").value;
+    var Car = document.getElementById("Car").value;
+    var Years = document.getElementById("Years").value;
+    var cost = 1*Place*Car*Years;
+    car1 = new car();
+    car1.setColor=Color;
+    car1.setPlace=Place;
+    car1.setCar=Car;
+    car1.setYears=Years;
+    alert(`Buying this Car will cost you ${cost} $` );
+    //alert(car1.toString());
+    
+  }
+  
+</script>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+  <div id="header"><h1>
+       <div class="img">
+         <h2>
+           EVERY SUPERCAR OUT THERE
+         </h2>
+        </div>
+  </h1></div>
+
+
+
+  <div id="navigation">
+    <ul id="menu">
+      <center>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="P1.html" target="_self"  >Ferrari</a></li>
+      <li><a href="P2.html" target="_self">Bugatti</a></li>
+      <li><a href="P3.html" target="_self">Lamborghini</a></li>
+      <li><a href="P4.html" target="_self" >Porsche</a></li>
+      <li><a href="P5.html" target="_self"  >Companies</a></li>
+      <li><a href="P6.html" target="_self">Gallary</a></li>
+      <li><a href="P7.html" target="_self">Technology</a></li>
+      <li><a href="P8.html" target="_self">Contact</a></li>
+      <li><a href="buycar.html" target="_self" style="border-style:solid">Car Shop</a></li>
+      <li><a href="buyengine.html" target="_self">Engine Shop</a></li>
+      <li><a href="P11.html" target="_self">Quiz</a></li>
+
+      </center>
+
+      
+
+      
+    </ul>
+   </div>
+  <div id="content">
+    <h1>Buying a Car</h1>  <br><br> <br><br>
+    <form name="form1">
+      <label><b>Color</b></label> 
+      <input type="text" id="Color" name="Color"> <br><br> 
+      <label><b>Country</b></label> 
+      <select id="Place">
+        <option value="1.5" id="United States">United States</option>
+        <option value="1.8" id="France">France</option>
+        <option value="2" id="China">China</option>
+        <option value="1.9" id="Spain">	Spain</option>
+        <option value="1.3" id="Italy">	Italy</option>
+        <option value="2" id="United Kingdom">United Kingdom</option>
+        <option value="1.3" id="Germany">	Germany</option>
+        <option value="1.8" id="Russian Federation">Russian Federation</option>
+        <option value="1.9" id="Malaysia">Malaysia</option>
+        <option value="2.0" id="Israel">Israel</option>
+        <option value="2.1" id="Mexico">Mexico</option>
+        <option value="1.5" id="Australia">Australia</option>
+        <option value="1.7" id="Sweden">Sweden</option>
+        <option value="1.6" id="Denmark">Denmark</option>
+        <option value="1.4" id="India">India</option>
+        <option value="1.5" id="Poland">Poland</option>
+      </select> <br><br> 
+      <label><b>Engine</b></label>
+      <select id="Car">
+        <optgroup label="Bugatti Cars">
+        <option value="2200000" id="Veyron">Bugatti Veyron</option>
+        <option value="3000000" id="hiron">Bugatti Chiron</option>
+        <option value="9000000" id="Centodieci">Bugatti Centodieci</option>
+        <option value="18000000" id="Voitur">Bugatti La Voiture Noire</option>
+      </optgroup>
+      <optgroup label="Ferrari Cars">
+        <option value="340000" id="SF90">Ferrari SF90 Stradale</option>
+        <option value="90000" id="599">Ferrari 599</option>
+        <option value="3000000" id="FXX">Ferrari FXX</option>
+        <option value="1000000" id="LaFerrari">LaFerrari</option>
+        <option value="670000" id="Enzo">Ferrari Enzo</option>
+        <option value="3500000" id="F50">Ferrari F50</option>
+      </optgroup>
+      <optgroup label="Lamborghini Cars">
+        <option value="4500000" id="Veneno">Lamborghini Veneno</option>
+        <option value="300000" id="Egoista">Lamborghini Egoista</option>
+        <option value="250000" id="Terzo">Lamborghini Terzo Millennio</option>
+        <option value="2200000" id="Sesto">Lamborghini Sesto Elemento</option>
+      </optgroup>
+      <optgroup label="Porsche Cars">
+        <option value="800000" id="918">Porche 918 Spyder</option>
+        <option value="450000" id="Carrera">Porche Carrera GT</option>
+        <option value="100000" id="992">Porche 992</option>
+        <option value="200000" id="Panamera">Porche Panamera</option>
+        <option value="210000" id="Taycan">Porche Taycan</option>
+      </optgroup>
+      </select> <br><br> 
+
+      <label><b>Year</b></label>
+      <select id="Years">
+        <option value="1.2">2013</option>
+        <option value="1.4">2014</option>
+        <option value="1.5">2015</option>
+        <option value="1.6">2016</option>
+        <option value="1.8">2017</option>
+        <option value="2">2018</option>
+      </select>
+
+      <br><br><br>
+      <button onClick="buying()">Buy</button>
+
+    </br> </br> </br>
+
+    </form>
+</div>
+
+
+
+</body>
+</html>
